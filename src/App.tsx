@@ -7,8 +7,10 @@ const App = () => {
             <nav className="sidebar">
 
             </nav>
-
-            <Outlet />
+            
+            <div className='page-container'>
+                <Outlet />
+            </div>
         </div>
     );
 }

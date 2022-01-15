@@ -1,7 +1,17 @@
 import React from 'react';
 
-const ProfilePage = () => {
+type ProfilePageProps = {
+    type : "MY" | "USER";
+}
 
+const ProfilePage : React.FC<ProfilePageProps> = ({ type }) => {
+    const element=(
+        <div className='Profile-page'>
+
+        </div>
+    );
+
+    return element;
 }
 
 export default ProfilePage;

@@ -1,36 +1,28 @@
 import React from 'react';
+import { CollectionTypeAbbr } from '../types';
 
-type CollectionType = {
-    id : string;
-    color : string;
-    name: string;
-    introImage : string;
-    isMine : string; // Y||N
-    isPublic : string;
-    isGroup : string;
-    isPinned : string;
-    isParticipated : string;
-    isFollowing : string;
-    categoryNames : string | null;
-    ownerNames : string;
-    linkCount : number;
-    description : string | null;
-    owner : object; 
-    followerCount : number;
-    participantCount : number;
-    participants : object[];
-}
+import 'boxicons';
 
-const CollectionCell : React.FC<CollectionType> = ({ 
-    id, 
-    color, name, introImage, description, categoryNames, ownerNames,
-    isMine, isPublic, isGroup, isPinned, isParticipated, isFollowing,
-    linkCount, followerCount, participantCount, 
-    owner, participants
+
+const CollectionCell : React.FC<CollectionTypeAbbr> = ({
+    id, color, name, introImage,
+    isMine, isPublic, isGroup, isPinned,
+    categoryNames, ownerNames, linkCount
 }) => {
     const element = (
         <div className="collection-cell">
+            <div className='cell-intro'>
+                <div className='img' style={{backgroundImage:`url(${introImage})`}}></div>
+                <div className='linkCount'>
+                    <i className='bx bx-link'></i>
+                    <div>{linkCount}</div>
+                </div>
+            </div>
 
+            <div className='cell-desc'>
+                <div className='title'>{name}</div>
+                <div className='owner'>{ownerNames}</div>
+            </div>
         </div>
     );
     return element;

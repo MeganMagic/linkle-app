@@ -1,0 +1,20 @@
+section.collection-section {
+    margin-bottom: 100px;
+
+    &> .title {
+        font-size: 22px;
+        font-weight: normal;
+        margin-bottom: 15px;
+    }
+
+    .grid-wrapper {
+        display: grid;
+
+        grid-template-rows: auto;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        row-gap: 30px;
+        column-gap: 35px;
+    }
+    
+}

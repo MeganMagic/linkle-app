@@ -1,0 +1,23 @@
+button.show-more {
+    width: 210px;
+    height: 40px;
+    margin : 0 auto;
+
+    border: 1px solid $light-gray-2;
+    border-radius: 3px;
+    background-color: white;
+    transition : all 0.2s ease-in;
+
+    &> .title {
+        font-size: 14px;
+        color : $gray-1;
+    }
+
+    &:hover {
+        background-color: $light-gray-1;
+
+        &>.title {
+            color : $black;
+        }
+    }
+}
