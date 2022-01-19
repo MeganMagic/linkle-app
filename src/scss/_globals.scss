@@ -27,7 +27,7 @@
     min-height: 100vh;
 }
 
-.page-container > .Home-page {
+.page-container > .Home-page, .Collection-page {
     width : 1150px;
     margin : 0 auto;
     padding : 35px 30px;
@@ -57,6 +57,10 @@ div.height-100 {
 .flex {
     display: flex;
 
+    &-col {
+        flex-direction: column;
+    }
+    
     &-jc-c {
         justify-content: center;
     }
