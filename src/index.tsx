@@ -19,10 +19,11 @@ import ProfilePage from './routes/ProfilePage';
 ReactDOM.render(
     <BrowserRouter>
         <Routes>
-            <Route path="/" element={<App />} >
+            <Route path="login" element={<LoginPage />} />
+
+            <Route element={<App />} >
 
                 <Route path="main" element={<HomePage />} />
-                <Route path="login" element={<LoginPage />} />
 
                 <Route path="collection">
                     <Route path=":collectionId" element={<CollectionPage />} />
