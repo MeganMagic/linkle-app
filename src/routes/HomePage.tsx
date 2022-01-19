@@ -2,16 +2,12 @@ import React, { useEffect, useState } from 'react';
 import CollectionSection from '../components/CollectionSection';
 import LinkSection from '../components/LinkSection';
 
-import SideNav from '../components/SideNav/SideNav';
-
 import { ssoqToken, apiEndPoint } from '../variables';
 
 
 const HomePage = () => {
     
     const element = <>
-        <SideNav />
-
         <div className='Home-page'>
                 
             <CollectionSection 
@@ -35,7 +31,6 @@ const HomePage = () => {
                 token={ssoqToken}
             />
 
-            
         </div>
     </>;
 
