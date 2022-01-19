@@ -13,10 +13,10 @@ export type CollectionType = {
     ownerNames : string;
     linkCount : number;
     description : string | null;
-    owner : object; 
+    owner : UserProfileType; 
     followerCount : number;
     participantCount : number;
-    participants : object[];
+    participants : UserProfileType[];
 }
 
 export type CollectionTypeAbbr = {
