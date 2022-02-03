@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
 import { ssoqToken, apiEndPoint } from '../../variables';
-import {  CollectionTypeAbbr, CollectionTypeAbbrExampleData } from '../../types';
 
 import NavCell from './NavCell';
 import NavCellFolder from './NavCellFolder';
 import NavCellSearch from './NavCellSearch';
+import NavCellModal from './NavCellModal';
 import UserProfileBox from './UserProfileBox';
+
+import AddLinkModal from '../modal/AddLinkModal';
+import AddCollectionModal from '../modal/AddCollectionModal';
 
 
 const SideNav : React.FC = () => {
@@ -16,14 +19,25 @@ const SideNav : React.FC = () => {
             { LogoSection }
 
             <section className='dashboard'>
+                <NavCellSearch />
                 <NavCell icon='grid-alt' title='대시보드' />
                 <NavCell icon='bell' title='알림' />
             </section>
 
             <div className='divider'></div>
 
+            <section className='functions'>
+                <NavCellModal icon='link' title="링크 추가" buttonIcon='plus'
+                    modalId='add-link' modalElement={<AddLinkModal />} 
+                />
+                <NavCellModal icon='collection' title="컬렉션 추가" buttonIcon='plus' 
+                    modalId='add-collection' modalElement={<AddCollectionModal />}
+                />
+            </section>
+
+            <div className='divider'></div>
+
             <section className='collections'>
-                <NavCellSearch />
 
                 <NavCellFolder name='my' icon='book-alt' title='내 컬렉션'
                     url = { apiEndPoint + '/w/my/collections?page=1'} token={ssoqToken}
@@ -38,12 +52,7 @@ const SideNav : React.FC = () => {
                 />
             </section>
 
-            <div className='divider'></div>
-
-            <section className='functions'>
-                <NavCell icon='link' title="링크 추가" buttonIcon='plus' />
-                <NavCell icon='collection' title="컬렉션 추가" buttonIcon='plus' />
-            </section>
+            
 
             <UserProfileBox token={ssoqToken}/>
         </nav>
@@ -58,8 +67,8 @@ export default SideNav;
 const LogoSection = 
     <section className='logo'>
         <div className='wrapper flex flex-ai-c'>
-            <img className='logo-img' src={require('../../data/logo_img.png')}/>
-            <img className='logo-text' src={require('../../data/logo_text.png')}/>
+            <img className='logo-img' src={require('../../source-files/logo_img.png')}/>
+            <img className='logo-text' src={require('../../source-files/logo_text.png')}/>
         </div>
 
         <button className='about'> about linkle </button>

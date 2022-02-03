@@ -35,35 +35,35 @@ nav.sidebar {
         flex-direction: row;
         align-items: center;
 
-        // background-color : $light-gray-2;
+        position: relative;
         border-radius: 5px;
 
-        &> .title {
+        & .title {
             font-size: 14px;
             font-weight: 500;
             color : $gray-1;
             transition: all 0.3s ease-in-out;
         }
-        &> i.cell-icon {
+        & i.cell-icon {
             color : $light-gray-3;
             margin-right : 8px;
             font-size : 18px;
             transition: all 0.3s ease-in-out;
         }
-        &> i.cell-icon-right {
+        & i.cell-icon-right {
             position: absolute;
-            right : 30px;
+            right : 3px;
             font-size: 16px;
             color : $gray-2;
             
         }
 
         // state 변화
-        &.selected, &:hover, &:focus-within {
-            &> .title {
+        &.selected, &:hover {
+            & .title {
                 color : $black;
             }
-            &> i.cell-icon {
+            & i.cell-icon {
                 color : $black;
             }
         }
@@ -131,4 +131,15 @@ nav.sidebar {
 
         }
     }
+
+    .nav-cell-modal {
+        position : relative;
+
+        .event-handler-wrapper {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+    }
+
 }

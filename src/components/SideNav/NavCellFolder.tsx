@@ -28,7 +28,6 @@ const NavCellFolder : React.FC<NavCellFolderProps> = ({
         })
         .then(res => res.data)
         .then(data => { 
-            console.log(data)
             setCollectionsMenu(data.data.items)
             setIsLoading(false)
         })
