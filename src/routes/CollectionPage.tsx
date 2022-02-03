@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import LinkSection from '../components/LinkSection';
-import { CollectionType } from '../types';
-import { apiEndPoint, ssoqToken } from '../variables';
+import LinkCell from '../components/LinkCell';
+
+import { CollectionType, LinkType } from '../types';
+import { apiEndPoint, requestOption } from '../variables';
 
 
 const CollectionPage = () => {
@@ -11,20 +12,22 @@ const CollectionPage = () => {
     const { collectionId } = param;
 
     const [ isLoading, setIsLoading ] = useState<boolean>(true);
-    const [ data, setData ] = useState<CollectionType>();
+    const [ introData, setIntroData ] = useState<CollectionType>();
+    const [ linksData, setLinksData ] = useState<LinkType[]>();
 
-    //console.log(collectionId)
+    const introRequest = axios.get(apiEndPoint + '/w/collections/' + collectionId, requestOption);
+    const linksRequest = axios.get(apiEndPoint + '/w/collections/' + collectionId + '/links?page=1', requestOption);
+
     useEffect(() => {
-        axios.get(apiEndPoint + '/w/collections/' + collectionId, {
-            headers : {
-                'content-type': 'application/json',
-                'SSOQ-TOKEN' : ssoqToken
-            }
-        })
-        .then(res => res.data)
-        .then(data => {
-            setData(data.data);
+        axios.all([introRequest, linksRequest])
+        .then(axios.spread((...responses) => responses.map(r => r.data)))
+        .then(responses => {
+            setIntroData(responses[0].data)
+            setLinksData(responses[1].data.items)
             setIsLoading(false)
+        })
+        .catch(errors => {
+            //error
         })
     }, [])
 
@@ -47,10 +50,23 @@ const CollectionPage = () => {
         </section>
     );
 
+    const linksElement = (links : LinkType[]) => (
+        // links.map((link, index) => <LinkCell key={index} {...link} />)
+
+        <section className='link-section'>
+            <div className='title'>링크 {links.length}개</div>
+            <div className='grid-wrapper'>
+                {
+                    links.map((link, index) => <LinkCell {...link} /> )
+                }
+            </div>
+        </section>
+    )
+
     return (
         <div className='Collection-page'>
-            { data && introElement(data) }
-            <LinkSection name='link' fetchUrl={apiEndPoint + '/w/collections/' + collectionId + '/links'} token={ssoqToken} sectionTitle='링크'/>
+            { introData && introElement(introData) }
+            { linksData && linksElement(linksData) }
         </div>
     );
 }
