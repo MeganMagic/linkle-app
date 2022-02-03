@@ -1,0 +1,54 @@
+.Search-page {
+    &-input {
+        background-color: $light-gray-1;
+        padding : 18px;
+        margin-bottom: 10px;
+        border-radius: 3px;
+
+        display : flex;
+        position: relative;
+
+        button.back {
+            margin-left: 7px;
+            margin-right : 20px;
+            i {
+                font-size: 16px;
+            }
+        }
+        input {
+            font-size: 20px;
+            width : 100%;
+        }
+        button.delete-all {
+            margin-left : 18px;
+            i {
+                font-size : 16px;
+            }
+        }
+    }
+
+    &-tab {
+        height : 54px;
+        margin-bottom: 50px;
+
+        display: flex;
+        align-items: center;
+
+        border-bottom : 1px solid $light-gray-2;
+
+        button.tab {
+            width: 92px;
+            height : 100%;
+            text-align: center;
+            color : $gray-2;
+            font-size: 16px;
+
+            &.selected {
+                color : $black;
+                font-weight: 700;
+                border-bottom : 2px solid $black;
+                margin-top : 1px;
+            }
+        }
+    }
+}

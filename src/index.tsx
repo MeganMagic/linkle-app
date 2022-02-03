@@ -31,8 +31,8 @@ ReactDOM.render(
                 </Route>
 
                 <Route path="searchresult">
-                    <Route path="all/:searchText" element={<SearchPage type='ALL'/>} />
-                    <Route path="my/:searchText" element={<SearchPage type='MY' />} />
+                    <Route path="all/:keyword" element={<SearchPage type='ALL'/>} />
+                    <Route path="my/:keyword" element={<SearchPage type='MY' />} />
                 </Route>
 
                 <Route path="profile">

@@ -2,11 +2,14 @@
 @import 'globals';
 
 @import './routes/collectionPage';
+@import './routes/searchPage';
+
 @import './components/collectionSection';
 @import './components/collectionCell';
-
 @import './components/linkCell';
 @import './components/linkSection';
+@import './components/userCell';
+@import './components/userSection';
 
 @import './components/buttonShowMore';
 @import './components/sideNav';
