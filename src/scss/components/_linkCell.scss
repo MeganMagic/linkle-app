@@ -8,6 +8,10 @@ $cell-transition : all 0.3s ease-in-out;
     border-radius: $cell-border-radius;
     box-shadow: 0px 1px 3px rgba(black, 0.16);
 
+    @include breakpoint(small-desktop) {
+        width : 100%;
+    }
+
     &> .cell-intro {
         position: relative;
         width: 100%;

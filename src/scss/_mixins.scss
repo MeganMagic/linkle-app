@@ -1,0 +1,14 @@
+// desktop : 1400px;
+// small-desktop : 992px;
+// tablet : 768px;
+
+$breakpoints: (
+    "phone" : "767px",
+    "tablet" : "991px",
+    "small-desktop" : "1399px",
+);
+@mixin breakpoint($size) {
+    @media (max-width: map-get($breakpoints, $size)) {
+        @content
+    }
+};

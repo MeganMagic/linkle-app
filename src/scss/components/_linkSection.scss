@@ -15,5 +15,12 @@ section.link-section {
 
         row-gap: 30px;
         column-gap: 30px;
+
+        @include breakpoint(small-desktop) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        @include breakpoint(tablet) {
+            grid-template-columns: 1fr 1fr;
+        }
     }
 }

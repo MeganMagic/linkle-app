@@ -25,15 +25,24 @@
     width : calc(100vw - 250px);
     height : auto;
     min-height: 100vh;
+    
 }
 
-.page-container > .Home-page, .Collection-page {
+.page-container > .Home-page, .Collection-page, .Search-page {
     width : 1150px;
     margin : 0 auto;
     padding : 35px 30px;
-    //border : solid 1px black;
 
     box-sizing: border-box;
+
+    @include breakpoint(small-desktop) {
+        width : 742px;
+    }
+
+    @include breakpoint(tablet) {
+        width : 518px;
+        min-width: 518px;
+    }
 }
 // reset initial setting
 input, button {
