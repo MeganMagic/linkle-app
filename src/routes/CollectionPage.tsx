@@ -32,7 +32,7 @@ const CollectionPage = () => {
     }, [])
 
     const introElement = (data : CollectionType) => (
-        <section className='collection-page-intro'>
+        <section className='Collection-page-intro'>
             <div className='flex'>
                 <div className='thumbnail' style={{backgroundImage:`url(${data.introImage})`}} ></div>
                 
