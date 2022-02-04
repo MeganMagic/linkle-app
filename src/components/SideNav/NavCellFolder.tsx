@@ -6,33 +6,15 @@ type NavCellFolderProps = {
     name : string;
     icon : string;
     title : string;
-    //collectionsMenu : CollectionTypeAbbr[];
-    url : string;
-    token : string;
+    collections? : CollectionTypeAbbr[];
 }
 
 
 const NavCellFolder : React.FC<NavCellFolderProps> = ({
-    name, icon, title, url, token
+    name, icon, title, collections
 }) => {
 
-    const [ collectionsMenu, setCollectionsMenu ] = useState<CollectionTypeAbbr[]>([]);
-    const [ isLoading, setIsLoading ] = useState<boolean>(true);
-
-    useEffect(() => {
-        axios.get(url, {
-            headers: {
-                'content-type': 'application/json',
-                'SSOQ-TOKEN' : token
-            }
-        })
-        .then(res => res.data)
-        .then(data => { 
-            setCollectionsMenu(data.data.items)
-            setIsLoading(false)
-        })
-        .catch()
-    }, [])
+    // const [ isLoading, setIsLoading ] = useState<boolean>(true);
 
     const openMenu = () => {
         const menuElement = document.getElementById(`cell-menu-${name}`)
@@ -50,7 +32,8 @@ const NavCellFolder : React.FC<NavCellFolderProps> = ({
         </div>
         <div className='nav-cell-menu' id={`cell-menu-${name}`}>
         {
-            collectionsMenu.map((x, i) => 
+            collections &&
+            collections.map((x, i) => 
                 <div className='menu-cell'>
                     <div className='thumbnail' style={{backgroundImage:`url(${x.introImage})`}}></div>
                     <div className='title'>{x.name}</div>

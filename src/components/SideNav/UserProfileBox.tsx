@@ -1,40 +1,26 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { MyProfileType } from '../../types';
+import { MyProfileType, UserProfileType } from '../../types';
 import { apiEndPoint } from '../../variables';
 
 type UserProfileBoxProps = {
-    token : string;
+    data? : UserProfileType
 }
 
-const UserProfileBox : React.FC<UserProfileBoxProps> = ({
-    token
+const UserProfileView : React.FC<UserProfileBoxProps> = ({
+    data
 }) => {
-
-    const [ profile, setProfile ] = useState<MyProfileType>()
-
-    useEffect(() => {
-        axios.get(apiEndPoint + '/w/my/profile', {
-            headers : {
-                'content-type': 'application/json',
-                'SSOQ-TOKEN' : token
-            }
-        })
-        .then(res => res.data)
-        .then(data => {
-            setProfile(data.data)
-            console.log(data)
-        })
-    }, [])
     
-    const element = 
-    <div className="user-profile-box">
-        <div className='wrapper flex flex-ai-c'>
-            <div className='thumbnail' style={{backgroundImage:`url(${profile?.thumbImage})`}}></div>
-            <div className='name'>{profile?.alias}</div>
+    return data ? 
+        <div className="user-profile-box">
+            <div className='wrapper flex flex-ai-c'>
+                <div className='thumbnail' style={{backgroundImage:`url(${data.thumbImage})`}}></div>
+                <div className='name'>{data.name}</div>
+            </div>
         </div>
-    </div>;
-    return element;
+        :
+        <div>Data fetch failed</div>
+    ;
 }
 
-export default UserProfileBox;
+export default UserProfileView;
