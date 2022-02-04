@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CollectionType } from '../types';
+import { CollectionType, CollectionTypeAbbr } from '../types';
 import { apiEndPoint, requestOption, ssoqToken } from '../variables';
 
 class CollectionManager {
@@ -9,14 +9,11 @@ class CollectionManager {
 
     private constructor() { }
 
-    // public static instantiate () {
-    //     return this.instance|| (this.instance = new CollectionManager())
-    // }
 
     // 1. get a collection data
     // used : collection page, collection edit 
     public async getCollection (id : string) : Promise<CollectionType> {
-        
+
         const url : string = apiEndPoint + '/w/collections/' + id;
         return await axios.get(url, this.requestOption)
             .then(response => response.data)
@@ -27,10 +24,58 @@ class CollectionManager {
     }
 
     // 2. get collection list
-    // used : main, user profile, side nav
-    public getCollections (type : string) {
-
+    // another user's profile
+    public getUserPublicCollections (id : string) : Promise<CollectionTypeAbbr[]>{
+        const url : string = apiEndPoint + '/w/members/' + id + '/collections';
+        return axios.get(url, requestOption)
+            .then(response => response.data)
+            .then(response => {
+                if(response.status == '00') 
+                    return response.data;
+                else throw new Error(response.message)
+            })
+            .catch(error => console.log(error))
     }
+
+    // my profile, side nav
+    public async getMyCollections () : Promise<CollectionTypeAbbr[]> {
+        const url : string = apiEndPoint + '/w/my/collections?page=1';
+        return axios.get(url, requestOption)
+            .then(response => response.data)
+            .then(response => {
+                if(response.status == '00') 
+                    return response.data.items;
+                else throw new Error(response.message)
+            })
+            .catch(error => console.log(error))
+    }
+
+    // side nav - my participated collections
+    public async getCollectionsIParticipated () : Promise<CollectionTypeAbbr[]> {
+        const url : string = apiEndPoint + '/w/my/collections-participated?page=1';
+        return axios.get(url, requestOption)
+            .then(response => response.data)
+            .then(response => {
+                if(response.status == '00')
+                    return response.data.items;
+                else throw new Error(response.message)
+            })
+            .catch(error => console.log(error))
+    }
+
+    // side nav - my subscribe collection
+    public async getCollectionsISubscribed () : Promise<CollectionTypeAbbr[]> {
+        const url : string = apiEndPoint + '/w/my/collections-subscribed'
+        return axios.get(url, requestOption)
+            .then(response => response.data)
+            .then(response => {
+                if(response.status == '00')
+                    return response.data.items;
+                else throw new Error(response.message)
+            })
+            .catch(error => console.log(error))
+    }
+
 }
 
 export default CollectionManager;
