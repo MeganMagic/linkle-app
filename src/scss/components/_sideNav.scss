@@ -3,9 +3,13 @@ nav.sidebar {
     padding : 30px;
     z-index : 9;
 
-    section.logo {
-        margin-bottom: 50px;
+    .scroll-wrapper {
+        height : calc(100vh - 437px - 88px);
+        overflow-y: scroll;
+        overflow-x: hidden; 
+    }
 
+    section.logo {
         .logo-img {
             height : 17px;
             margin-right : 10px;
