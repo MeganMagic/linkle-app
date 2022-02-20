@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CollectionType, CollectionTypeAbbr } from '../types';
+import { CollectionType, CollectionTypeAbbr, CollectionTypeAtModal } from '../types';
 import { apiEndPoint, requestOption, ssoqToken } from '../variables';
 
 class CollectionManager {
@@ -30,7 +30,7 @@ class CollectionManager {
         return axios.get(url, requestOption)
             .then(response => response.data)
             .then(response => {
-                if(response.status == '00') 
+                if(response.status === '00') 
                     return response.data;
                 else throw new Error(response.message)
             })
@@ -43,7 +43,7 @@ class CollectionManager {
         return axios.get(url, requestOption)
             .then(response => response.data)
             .then(response => {
-                if(response.status == '00') 
+                if(response.status === '00') 
                     return response.data.items;
                 else throw new Error(response.message)
             })
@@ -56,7 +56,7 @@ class CollectionManager {
         return axios.get(url, requestOption)
             .then(response => response.data)
             .then(response => {
-                if(response.status == '00')
+                if(response.status === '00')
                     return response.data.items;
                 else throw new Error(response.message)
             })
@@ -69,13 +69,29 @@ class CollectionManager {
         return axios.get(url, requestOption)
             .then(response => response.data)
             .then(response => {
-                if(response.status == '00')
+                if(response.status === '00')
                     return response.data.items;
                 else throw new Error(response.message)
             })
             .catch(error => console.log(error))
     }
 
+    // 3. create new Collection
+    public async create (data : CollectionTypeAtModal) : Promise<string | null> {
+        const url : string = apiEndPoint + '/v1/folders';
+
+        return axios.post(url, requestOption)
+            .then(response => response.data)
+            .then(response => {
+                if(response.status === '00')
+                    return response.data.message;
+                else throw new Error(response.message)
+            })
+            .catch(error => {
+                console.log(error.message);
+                return null;
+            })
+    }
 }
 
 export default CollectionManager;
