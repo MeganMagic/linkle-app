@@ -17,7 +17,7 @@ const NavCellSearch = () => {
         <div className='nav-cell nav-cell-search mb-sm'>
             <i className='cell-icon bx bx-search'></i>
             <form onSubmit={onSubmit}>
-                <input name='searchText' placeholder='검색'
+                <input name='searchText'  placeholder='검색' autoComplete='off'
                     value={searchText} 
                     onChange={onChange}
                 />

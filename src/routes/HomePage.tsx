@@ -40,7 +40,6 @@ const HomePage = () => {
                 favoriteCollections : response[1].data,
                 recentLinks : response[2].data,
             })
-            console.log(fetchData)
         })
 
     }, [])

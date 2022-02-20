@@ -65,7 +65,7 @@ const AddLinkModal : React.FC = () => {
                     <option value={undefined} >--- 저장할 컬렉션을 선택하세요 ---</option> 
                     {
                         collectionList &&
-                        collectionList.map((collection, index) => <option value={index} >{collection.name}</option>)
+                        collectionList.map((collection, index) => <option key={`opt-${index}`} value={index} >{collection.name}</option>)
                     }
                 </select>
 
