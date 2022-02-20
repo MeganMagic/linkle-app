@@ -1,25 +1,46 @@
-import React from 'react';
-import CollectionModal from './CollectionModal';
+import React, { useState } from 'react';
+import CollectionModalView from './CollectionModalView';
 import CollectionManager from '../../data/CollectionManager';
+import { CollectionTypeAtModal } from '../../types';
 
-
-type AddCollectionModalProps = {
-
-}
-
-const AddCollectionModal : React.FC<AddCollectionModalProps> = ({}) => {
+const AddCollectionModal : React.FC = () => {
 
     const dataManager = CollectionManager.shared;
 
-    const onSubmit = (e : React.FormEvent) => {
-        e.preventDefault();
+    const [state, setState] = useState<CollectionTypeAtModal>({
+        name : '',
+        desc : '',
+        categories : [],
+        isPublic : false,
+        isNotGroup : false
+    })
 
-        // 1. input에 입력된 데이터 가져오기
-        console.log(e);
-        // 2. manager를 통해 저장
+    const handleChange = (event : React.ChangeEvent<HTMLInputElement>) => {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        
+        setState({
+            ...state,
+            [name] : value
+        })
+        
     }
 
-    return <CollectionModal onSubmit={onSubmit}/>
+    const handleSubmit = (event : React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+
+        const result = dataManager.create(state);
+        result.then(result => {
+            if(result === null) {
+                console.log('post failed');
+            }
+            console.log('post success : ' + result);
+        })
+    }
+
+    return <CollectionModalView formState={state} onChange={handleChange} onSubmit={handleSubmit}/>
 }
 
 export default AddCollectionModal

@@ -33,6 +33,14 @@ export type CollectionTypeAbbr = {
     linkCount : number
 }
 
+export type CollectionTypeAtModal = {
+    name : string;
+    desc : string;
+    categories : string[];
+    isPublic : boolean;
+    isNotGroup : boolean;
+}
+
 export type LinkType = {
     linkId: string;
     linkTitle: string;
@@ -61,6 +69,17 @@ export type MyProfileType = {
     linkCount: number;
 }
 
+export type NotificationType = {
+    id: number;
+    noticeType: string; // LINK | SUBSCRIPTION | PARTICIPATE
+    noticeIcon: string | null;
+    memberId: string;
+    targetId: string;
+    title: string;
+    note : string;
+    createdOn : string;
+    readOn: string | null
+}
 // -------------
 // ** Example data **
 
