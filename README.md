@@ -10,7 +10,6 @@
 
 ## 웹 애플리케이션 구조
 
----
 
 링클은 [사용자 요구사항](https://dev-mari.notion.site/532aaed9183f406cadae1255c12dae7f)을 작성 후, 이를 기반으로 페이지와 컴포넌트를 정의하였습니다. 도식화한 모습은 다음과 같습니다.
 
@@ -19,9 +18,10 @@
 이후, 정의된 화면과 컴포넌트의 [Wireframe](https://dev-mari.notion.site/833f551e886d45248b19fd83b751e251)을 제작하였습니다.
 
 
+<br/>
+
 ## 디자인 가이드
 
----
 
 어플리케이션 내에서 공통적으로 사용될 서체, 색상, 버튼, 셀 등의 디자인 요소를 정리하였습니다.
 <img src="./readme_src/designGuide-font.png" width="640px"/>
@@ -32,10 +32,10 @@
 
 <img src="./readme_src/designGuide-cell.png" width="640px"/>
 
+<br/>
 
 ## MVC 아키텍쳐 적용
 
----
 
 ##### 2022.02 
 - MVC Pattern에 따라 코드 리팩토링 시작
