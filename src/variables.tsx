@@ -7,3 +7,9 @@ export const requestOption = {
         'SSOQ-TOKEN' : ssoqToken
     }
 }
+
+export const collectionCategoryIds = {
+    'IT' : '0f1a5ee5e6a511eaa082415abd5db3ed'
+    
+};
+export const getCollectionCategoryIds = Object.values(collectionCategoryIds);
