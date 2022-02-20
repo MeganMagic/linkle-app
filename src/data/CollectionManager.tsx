@@ -84,7 +84,7 @@ class CollectionManager {
             .then(response => response.data)
             .then(response => {
                 if(response.status === '00')
-                    return response.data.message;
+                    return response.message;
                 else throw new Error(response.message)
             })
             .catch(error => {

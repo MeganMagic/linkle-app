@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# 링클 Linkle
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+링클은 링크를 저장하고, 분류하고, 공유할 수 있는 서비스입니다.
+이미 모바일 애플리케이션으로 출시된 링클은, 2022년 웹 애플리케이션으로도 확장될 예정입니다.
 
-## Available Scripts
+![intro](./readme_src/readme-intro.png)
 
-In the project directory, you can run:
 
-### `npm start`
+## 웹 애플리케이션 구조
+---
+링클은 [사용자 요구사항](https://dev-mari.notion.site/532aaed9183f406cadae1255c12dae7f)을 작성 후, 이를 기반으로 페이지와 컴포넌트를 정의하였습니다. 도식화한 모습은 다음과 같습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![structure](./readme_src/readme-structure.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+이후, 정의된 화면과 컴포넌트의 [Wireframe](https://dev-mari.notion.site/833f551e886d45248b19fd83b751e251)을 제작하였습니다.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 디자인 가이드
+---
+어플리케이션 내에서 공통적으로 사용될 서체, 색상, 버튼, 셀 등의 디자인 요소를 정리하였습니다.
+<img src="./readme_src/designGuide-font.png" width="640px"/>
 
-### `npm run build`
+<img src="./readme_src/designGuide-color.png" width="640px"/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="./readme_src/designGuide-button.png" width="640px"/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src="./readme_src/designGuide-cell.png" width="640px"/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## MVC 아키텍쳐 적용
+---
+##### 2022.02 
+- MVC Pattern에 따라 코드 리팩토링 시작
