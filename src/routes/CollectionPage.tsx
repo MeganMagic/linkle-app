@@ -33,20 +33,17 @@ const CollectionPage = () => {
 
     const introElement = (data : CollectionType) => (
         <section className='Collection-page-intro'>
-            <div className='flex'>
-                <div className='thumbnail' style={{backgroundImage:`url(${data.introImage})`}} ></div>
-                
-                <div className='flex flex-col'>
-                    <div className='title'>{data.name}</div>
-                    <div className='owner'>{data.ownerNames}</div>
+            <div className='thumbnail' style={{backgroundImage:`url(${data.introImage})`}} ></div>
+            
+            <div className='flex flex-col'>
+                <h2 className='title'>{data.name}</h2>
+                <p className='md-light owner'>{data.ownerNames}</p>
 
-                    <div>
-                        <button>참가</button>
-                        <button>구독</button>
-                    </div>
+                <div className='controller'>
+                    <button className='styled pos'>참가</button>
+                    <button className='styled pos'>구독</button>
                 </div>
             </div>
-            
         </section>
     );
 
@@ -54,11 +51,14 @@ const CollectionPage = () => {
         // links.map((link, index) => <LinkCell key={index} {...link} />)
 
         <section className='link-section'>
-            <div className='title'>링크 {links.length}개</div>
+            <div className='flex mb-md'>
+                <p className='lg'>링크</p>
+                <p className='lg'>{`\b  ${links.length}개`}</p>
+            </div>
             <div className='grid-wrapper'>
-                {
-                    links.map((link, index) => <LinkCell {...link} /> )
-                }
+            {
+                links.map((link, index) => <LinkCell {...link} /> )
+            }
             </div>
         </section>
     )

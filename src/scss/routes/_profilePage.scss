@@ -2,18 +2,18 @@
     
     &-intro {
         width : 100%;
+        position : relative;
         display : flex;
         align-items: center;
-        column-gap : 30px;
-        position : relative;
 
+        column-gap : 30px;
         margin-bottom : 80px;
 
         .thumbnail {
             width : 250px;
             height : 250px;
             border-radius: 50%;
-            background-color: $light-gray-2;
+            background-color: $gray-4;
 
             background-size: cover;
             background-position: center;
@@ -42,7 +42,7 @@
 
             button.edit {
                 padding : 9px 20px;
-                background-color: $light-gray-1;
+                background-color: $gray-5;
                 border-radius: 100px;
                 
 
@@ -59,7 +59,7 @@
                 }
 
                 &:hover {
-                    background-color: $light-gray-2;
+                    background-color: $gray-4;
                 }
 
                 @include breakpoint(tablet) {

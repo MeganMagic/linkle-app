@@ -34,9 +34,11 @@ const NavCellFolder : React.FC<NavCellFolderProps> = ({
         {
             collections &&
             collections.map((x, i) => 
-                <div className='menu-cell'>
-                    <div className='thumbnail' style={{backgroundImage:`url(${x.introImage})`}}></div>
-                    <div className='title'>{x.name}</div>
+                <div className='menu-cell' key={`m-cell-${i}`}>
+                    <div className='title flex flex-ai-c'>
+                        <p className='sm-light'>{x.name}</p>
+                    </div>
+                    <div className='color' style={{backgroundColor : `#${x.color}`}}></div>
                 </div>
             )
         }

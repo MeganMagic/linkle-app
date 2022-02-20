@@ -3,7 +3,7 @@ button.show-more {
     height: 40px;
     margin : 0 auto;
 
-    border: 1px solid $light-gray-2;
+    border: 1px solid $gray-4;
     border-radius: 3px;
     background-color: white;
     transition : all 0.2s ease-in;
@@ -14,7 +14,7 @@ button.show-more {
     }
 
     &:hover {
-        background-color: $light-gray-1;
+        background-color: $gray-5;
 
         &>.title {
             color : $black;

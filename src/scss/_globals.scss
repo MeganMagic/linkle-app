@@ -6,7 +6,6 @@
 
 .App {
     width : 100vw;
-    
 }
 
 .App .sidebar {
@@ -16,7 +15,7 @@
 
     width : 250px;
     height : 100vh;
-    background-color: $light-gray-1;
+    background-color: $white;
 }
 .App .page-container {
     position: absolute;
@@ -26,6 +25,7 @@
     height : auto;
     min-height: 100vh;
     
+    background-color: $gray-5;
 }
 
 .page-container > .Home-page, .Collection-page, .Search-page, .Profile-page {
@@ -49,9 +49,14 @@ input, button {
     border : none;
     background: none;
     appearance: none;
+
     &:focus {
         outline: none
     }
+}
+a {
+    color : inherit;
+    text-decoration: none;
 }
 
 // width height
@@ -81,3 +86,120 @@ div.height-100 {
         align-items: center;
     }
 }
+
+// ** font style
+
+h1 {
+    font-size: 44px;
+    font-weight: 700;
+    color : $black;
+}
+h2 {
+    font-size : 36px;
+    font-weight: 700;
+    color : $black;
+}
+h3 {
+    font-size : 24px;
+    font-weight: 700;
+    color : $black;
+}
+h4 {
+    font-size : 18px;
+    font-weight: 700;
+    color : $black;
+}
+
+p {
+    &.lg {
+        font-size : 22px;
+        font-weight: 500;
+        color : $black;
+        &-light {
+            font-size : 22px;
+            font-weight: 500;
+            color : $gray-1;
+        }
+    }
+    &.md {
+        font-size : 14px;
+        font-weight: 500;
+        color : $black;
+        &-light {
+            font-size : 14px;
+            font-weight: 500;
+            color : $gray-1;
+        }
+    }
+    &.sm {
+        font-size : 12px;
+        font-weight: 500;
+        color : $black;
+        &-light {
+            font-size : 12px;
+            font-weight: 500;
+            color : $gray-1;
+        }
+    }
+}
+
+// ** button style
+button.styled{
+    width : 120px;
+    height : 40px;
+    border-radius: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 14px;
+    font-weight: 700;
+    color : $white;
+
+    &.em {
+        background-color: $secondary-1;
+        &.disabled {
+            background-color: $secondary-3;
+        }
+    }
+
+    &.pos {
+        background-color: $gray-1;
+        &.disabled {
+            background-color: $gray-2;
+            color : $gray-4;
+        }
+    }
+
+    &.neg {
+        background-color: $gray-4;
+        color : $black;
+        &.disabled {
+            background-color: $gray-5;
+            color : $gray-3;
+        }
+    }
+}
+
+// ** bottom spacing style
+
+$spacings : (
+    'xxs' : 2px, 
+    'xs' : 5px, 
+    'sm' : 10px,
+    'md' : 24px,
+    'lg' : 48px,
+    'xl' : 80px,
+    'xxl' : 120px
+);
+@mixin margin-bottom-spacing($size) {
+    margin-bottom : map-get($spacings, $size);
+}
+.mb-xxs { @include margin-bottom-spacing(xxs);}
+.mb-xs { @include margin-bottom-spacing(xs);}
+.mb-sm { @include margin-bottom-spacing(sm);}
+.mb-md { @include margin-bottom-spacing(md);}
+.mb-lg { @include margin-bottom-spacing(lg);}
+.mb-xl { @include margin-bottom-spacing(xl);}
+.mb-xxl { @include margin-bottom-spacing(xxl);}

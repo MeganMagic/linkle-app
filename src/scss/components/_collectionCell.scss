@@ -3,8 +3,6 @@
         position : relative;
         width : 340px;
         height : 250px;
-        //temp
-        background-color: $light-gray-1;
 
         &> .img {
             position: absolute;
@@ -47,17 +45,7 @@
 
         .title {
             margin-top : 10px;
-
-            font-size : 18px;
-            font-weight: 700;
-            color : $black;
-        }
-
-        .owner {
-            margin-top: 2px;
-            font-size: 14px;
-            font-weight: normal;
-            color : $gray-1;
+            margin-bottom : 2px;
         }
     }
 }

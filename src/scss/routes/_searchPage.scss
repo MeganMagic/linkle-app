@@ -1,6 +1,6 @@
 .Search-page {
     &-input {
-        background-color: $light-gray-1;
+        background-color: $white;
         padding : 18px;
         margin-bottom: 10px;
         border-radius: 3px;
@@ -34,7 +34,7 @@
         display: flex;
         align-items: center;
 
-        border-bottom : 1px solid $light-gray-2;
+        border-bottom : 1px solid $gray-4;
 
         button.tab {
             width: 92px;
