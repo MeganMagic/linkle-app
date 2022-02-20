@@ -16,10 +16,10 @@ const LinkSection: React.FC<LinkSectionProps> = ({
 
     const element = 
     <section className={`link-section link-section=${name}`}>
-        <div className='title'>{sectionTitle}</div>
+        <h4 className='mb-md'>{sectionTitle}</h4>
             <div className='grid-wrapper'>
                 {
-                    links?.map((data, index) => <LinkCell {...data} />)
+                    links?.map((data, index) => <LinkCell key={`l-cell-${index}`} {...data} />)
                 }
             </div>
     </section>

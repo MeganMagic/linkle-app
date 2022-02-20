@@ -20,8 +20,8 @@ const CollectionCell : React.FC<CollectionTypeAbbr> = ({
             </div>
 
             <div className='cell-desc'>
-                <div className='title'>{name}</div>
-                <div className='owner'>{ownerNames}</div>
+                <h4 className='title'>{name}</h4>
+                <p className='md-light'>{ownerNames}</p>
             </div>
         </div>
     );

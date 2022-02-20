@@ -22,13 +22,14 @@ const CollectionSection : React.FC<CollectionSectionProps> = ({
     // Collections === [] 인 경우도 고려할 것
     const element = 
         <section className={`collection-section collection-section-${name}`}>
-            <div className='title'>{sectionTitle}</div>
-                <div className='grid-wrapper'>
-                    {
-                        collections.slice(0, displayedCellNumber)
-                        .map((data, index) => <CollectionCell {...data} />)
-                    }
-                </div>
+            <h4 className='mb-md'>{sectionTitle}</h4>
+
+            <div className='grid-wrapper'>
+                {
+                    collections.slice(0, displayedCellNumber)
+                    .map((data, index) => <CollectionCell key={`c-cell-${index}`} {...data} />)
+                }
+            </div>
 
             {
                 collections.length > displayedCellNumber 

@@ -19,7 +19,7 @@ const LinkCell : React.FC<LinkType> = ({
             </div>
 
             <div className='cell-desc'>
-                <div className='title'>{linkTitle}</div>
+                <p className='md-light'>{linkTitle}</p>
             </div>
         </div>
     )
