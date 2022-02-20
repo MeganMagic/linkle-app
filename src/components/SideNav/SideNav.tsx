@@ -12,6 +12,7 @@ import AddCollectionModal from '../modal/AddCollectionModal';
 import { CollectionTypeAbbr, UserProfileType } from '../../types';
 import ProfileManager from '../../data/ProfileManager';
 import CollectionManager from '../../data/CollectionManager';
+import NotificationModal from '../modal/NotificationModal';
 
 type SideNavViewProps = {
     userData? : UserProfileType;
@@ -30,19 +31,23 @@ const SideNavView : React.FC<SideNavViewProps> = ({
     const element = (
         <nav className="sidebar">
 
-            <section className='logo'>
+            <section className='logo mb-lg'>
                 <div className='wrapper flex flex-ai-c'>
                     <img className='logo-img' src={require('../../source-files/logo_img.png')}/>
                     <img className='logo-text' src={require('../../source-files/logo_text.png')}/>
                 </div>
 
-                <button className='about'> about linkle </button>
+                <button className='about'> 
+                    <p className='sm'>about linkle</p> 
+                </button>
             </section>
 
             <section className='dashboard'>
                 <NavCellSearch />
                 <NavCell icon='grid-alt' title='대시보드' />
-                <NavCell icon='bell' title='알림' />
+                <NavCellModal icon='bell' title='알림' 
+                    modalId='notification' modalElement={<NotificationModal />}
+                />
             </section>
 
             <div className='divider'></div>
@@ -57,23 +62,25 @@ const SideNavView : React.FC<SideNavViewProps> = ({
             </section>
 
             <div className='divider'></div>
-
-            <section className='collections'>
-
-                <NavCellFolder name='my' icon='book-alt' title='내 컬렉션'
-                    collections={myCollections}
-                />
-
-                <NavCellFolder name='participant' icon='book-add' title='참가한 컬렉션'
-                    collections={participateCollections}
-                />
-
-                <NavCellFolder name='subscribe' icon='book-bookmark' title='구독 컬렉션'
-                    collections={subscribeCollections}
-                />
-            </section>
-
             
+            <div className='scroll-wrapper'>
+
+                <section className='collections'>
+
+                    <NavCellFolder name='my' icon='book-alt' title='내 컬렉션'
+                        collections={myCollections}
+                    />
+
+                    <NavCellFolder name='participant' icon='book-add' title='참가한 컬렉션'
+                        collections={participateCollections}
+                    />
+
+                    <NavCellFolder name='subscribe' icon='book-bookmark' title='구독 컬렉션'
+                        collections={subscribeCollections}
+                    />
+                </section>
+
+            </div>
 
             <UserProfileBox data ={userData} />
         </nav>
